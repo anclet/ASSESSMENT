@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Email configuration (adjust to your mail provider)
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  #for Gmail account
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # for Gmail account
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
@@ -60,7 +60,10 @@ def index():
 
 # Function to send email
 def send_email(application_data):
-    msg = Message("RICA Import Permit Application Received", recipients=["ukurikiyeyezuanaclet201@gmail.com"])
+    # Fetch the email from the form data
+    recipient_email = application_data.get('email')
+    
+    msg = Message("RICA Import Permit Application Received", recipients=[recipient_email])
     msg.body = f"""
     A new application has been submitted:
 
