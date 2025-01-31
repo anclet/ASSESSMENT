@@ -16,12 +16,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Email configuration (adjust to your mail provider)
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Example for Gmail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'  #for Gmail account
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')  # Your email
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')  # Your email password or app-specific password
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')  
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')  
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_USERNAME')
 
 mail = Mail(app)
